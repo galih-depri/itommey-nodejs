@@ -87,5 +87,26 @@ module.exports = {
     }
   },
 
-  // Update specific
+  // Update specific product
+  async updateProduct(req, res) {
+    try {
+      const id = req.params.id;
+      const findProduct = await Product.findOne({ where: { id } });
+      if (!findProduct) {
+        const error = new Error("Product doesn't exist");
+        error.code = 404;
+        throw error;
+      }
+      await Product.update(req.body, { where: { id } });
+      res
+        .status(200)
+        .json(
+          `Product with ID ${req.params.id} has susccessfully been updated`
+        );
+    } catch (error) {
+      res
+        .status(error.code || 500)
+        .json({ status: "error", message: error.message });
+    }
+  },
 };

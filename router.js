@@ -8,5 +8,6 @@ router.post("/api/v1/product", product.create);
 router.get("/api/v1/product", product.listAllProducts);
 router.get("/api/v1/product/:id", product.findProduct);
 router.delete("/api/v1/product/:id", product.deleteProduct);
+router.put("/api/v1/product/:id", product.updateProduct);
 
 module.exports = router;
