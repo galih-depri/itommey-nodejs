@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: "Product",
-      paranoid: true,
+      paranoid: true, // To make the soft delete function available
       timestamps: true,
     }
   );

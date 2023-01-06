@@ -14,10 +14,6 @@ const db = require("./models");
 db.sequelize.sync();
 
 // Routes
-app.get("/", (req, res) => {
-  res.json({ message: "You get what you requested" });
-});
-
 app.use("/", router);
 
 app.listen(port, () => {
